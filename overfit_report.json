@@ -1,0 +1,92 @@
+[
+  {
+    "model": "AdaBoost",
+    "status": "GOOD FIT",
+    "note": "Train F1=32.5% vs Test F1=33.3%",
+    "train_f1": 32.51,
+    "test_f1": 33.33,
+    "gap": -0.82,
+    "suggestion": "Model is well-balanced. Monitor for concept drift."
+  },
+  {
+    "model": "Logistic Regression",
+    "status": "GOOD FIT",
+    "note": "Train F1=33.6% vs Test F1=31.6%",
+    "train_f1": 33.56,
+    "test_f1": 31.58,
+    "gap": 1.98,
+    "suggestion": "Model is well-balanced. Monitor for concept drift."
+  },
+  {
+    "model": "Extra Trees",
+    "status": "OVERFIT",
+    "note": "Train F1=100.0% vs Test F1=60.0%",
+    "train_f1": 100.0,
+    "test_f1": 60.0,
+    "gap": 40.0,
+    "suggestion": "Reduce max_depth, increase min_samples_leaf, or add more real-world disaster samples."
+  },
+  {
+    "model": "Random Forest",
+    "status": "OVERFIT",
+    "note": "Train F1=87.5% vs Test F1=51.4%",
+    "train_f1": 87.5,
+    "test_f1": 51.43,
+    "gap": 36.07,
+    "suggestion": "Reduce max_depth, increase min_samples_leaf, or add more real-world disaster samples."
+  },
+  {
+    "model": "Voting Ensemble (GBM+RF+ET)",
+    "status": "OVERFIT",
+    "note": "Train F1=100.0% vs Test F1=50.0%",
+    "train_f1": 100.0,
+    "test_f1": 50.0,
+    "gap": 50.0,
+    "suggestion": "Reduce max_depth, increase min_samples_leaf, or add more real-world disaster samples."
+  },
+  {
+    "model": "Gradient Boosting",
+    "status": "OVERFIT",
+    "note": "Train F1=100.0% vs Test F1=50.0%",
+    "train_f1": 100.0,
+    "test_f1": 50.0,
+    "gap": 50.0,
+    "suggestion": "Reduce max_depth, increase min_samples_leaf, or add more real-world disaster samples."
+  },
+  {
+    "model": "Decision Tree",
+    "status": "OVERFIT",
+    "note": "Train F1=71.6% vs Test F1=41.9%",
+    "train_f1": 71.64,
+    "test_f1": 41.86,
+    "gap": 29.78,
+    "suggestion": "Reduce max_depth, increase min_samples_leaf, or add more real-world disaster samples."
+  },
+  {
+    "model": "K-Nearest Neighbours",
+    "status": "OVERFIT",
+    "note": "Train F1=50.5% vs Test F1=33.3%",
+    "train_f1": 50.52,
+    "test_f1": 33.33,
+    "gap": 17.18,
+    "suggestion": "Reduce max_depth, increase min_samples_leaf, or add more real-world disaster samples."
+  },
+  {
+    "model": "Ridge Classifier",
+    "status": "UNDERFIT",
+    "note": "Train F1=24.3% vs Test F1=24.7%",
+    "train_f1": 24.32,
+    "test_f1": 24.74,
+    "gap": -0.42,
+    "suggestion": "Increase model complexity or features. Try more boosting rounds."
+  },
+  {
+    "model": "Naive Bayes",
+    "status": "UNDERFIT",
+    "note": "Train F1=22.3% vs Test F1=23.3%",
+    "train_f1": 22.28,
+    "test_f1": 23.3,
+    "gap": -1.02,
+    "suggestion": "Increase model complexity or features. Try more boosting rounds."
+  }
+]

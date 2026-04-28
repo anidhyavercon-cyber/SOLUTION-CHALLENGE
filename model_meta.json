@@ -1,0 +1,34 @@
+{
+  "features": [
+    "temperature",
+    "rainfall",
+    "wind_speed",
+    "humidity",
+    "pressure",
+    "river_level",
+    "soil_moisture",
+    "lat",
+    "lon",
+    "month_sin",
+    "month_cos",
+    "season",
+    "rain_wind"
+  ],
+  "classes": [
+    "No Flood",
+    "Flood"
+  ],
+  "best_model": "AdaBoost",
+  "accuracy": 95.76,
+  "train_accuracy": 95.78,
+  "precision": 20.0,
+  "recall": 100.0,
+  "f1": 33.33,
+  "auc_roc": 99.01,
+  "overfit_gap": 0.02,
+  "fit_status": "GOOD FIT",
+  "n_samples": 5663,
+  "smote_applied": true,
+  "dataset_source": "india_full_weather_dataset.csv + noise augmentation",
+  "trained_at": "2026-04-28T10:45:20.977487"
+}
