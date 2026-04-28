@@ -296,7 +296,7 @@ nav {
 </div>
 
 <script>
-const API = 'http://localhost:5000/api';
+const API = '';
 let map, heatLayer, markers = [], floodChart;
 
 // --- Initialize ---
@@ -351,6 +351,7 @@ function initGraph() {
 
 // --- Data Fetching ---
 async function fetchModelMeta() {
+  if (!API) return;
   try {
     const r = await fetch(API + '/model/info');
     const d = await r.json();
@@ -362,6 +363,7 @@ async function fetchModelMeta() {
 }
 
 async function refreshLiveData() {
+  if (!API) return;
   try {
     const res = await fetch(API + '/weather/all-states');
     const data = await res.json();
@@ -471,6 +473,15 @@ async function runInference() {
   btn.innerText = 'PROCESSING...';
   btn.disabled = true;
 
+  if (!API) {
+    resArea.style.display = 'block';
+    document.getElementById('res-type').innerHTML = `<div style="color:var(--warn); font-size:1rem;">Backend not available in static demo</div>`;
+    document.getElementById('res-level-tag').innerHTML = `<div style="color:var(--text-dim); font-size:0.8rem; margin-top:10px;">Run the Flask backend locally to enable live predictions.</div>`;
+    btn.innerText = 'RUN SAFETY ASSESSMENT';
+    btn.disabled = false;
+    return;
+  }
+
   try {
     const res = await fetch(API + '/predict', {
       method: 'POST',
@@ -510,7 +521,9 @@ async function runInference() {
       </div>`;
 
   } catch (e) {
-    alert("Inference Error: " + e.message);
+    resArea.style.display = 'block';
+    document.getElementById('res-type').innerHTML = `<div style="color:var(--danger); font-size:0.9rem;">Connection Error</div>`;
+    document.getElementById('res-level-tag').innerHTML = `<div style="color:var(--text-dim); font-size:0.8rem; margin-top:8px;">Could not reach the backend. Ensure the Flask server is running locally.</div>`;
   } finally {
     btn.innerText = 'RUN ML PREDICTION';
     btn.disabled = false;
